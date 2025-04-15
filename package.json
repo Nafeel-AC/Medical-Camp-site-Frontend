@@ -1,0 +1,31 @@
+{
+  "name": "med-student-prep",
+  "version": "1.0.0",
+  "description": "Medical student preparation platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9",
+    "mongoose": "^8.0.3",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "express-session": "^1.17.3",
+    "connect-flash": "^0.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "@google/generative-ai": "^0.1.0",
+    "multer": "^1.4.5-lts.1",
+    "speech-to-text": "^2.1.0",
+    "axios": "^1.5.0",
+    "helmet": "^7.0.0",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^6.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,237 @@
+<%- include('./partials/header') %>
+
+<div class="container my-5 page-content">
+  <div class="text-center mb-5">
+    <div class="animate-card d-inline-block p-3 rounded-circle mb-3" style="background: var(--light-green)">
+      <i class="fas fa-chart-line fa-2x" style="color: var(--primary-green)"></i>
+    </div>
+    <h1 class="display-4 fw-bold">Your Performance Dashboard</h1>
+    <p class="lead text-muted">Track your progress and identify areas for improvement</p>
+  </div>
+  
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="green-card animate-card shadow mb-4">
+        <div class="card-header">
+          <h3 class="mb-0">Overall Progress</h3>
+        </div>
+        <div class="card-body text-center p-4">
+          <div class="progress-circle" data-value="<%= overallAccuracy %>">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <path class="circle" stroke-dasharray="<%= overallAccuracy %>, 100" d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <text x="18" y="20.35" class="percentage"><%= overallAccuracy %>%</text>
+            </svg>
+          </div>
+          <h4 class="mt-4 text-primary">Accuracy Score</h4>
+          <p class="text-muted"><%= totalQuestions %> questions answered</p>
+          
+          <div class="mt-4">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Your Goal</span>
+              <span>80%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: <%= Math.min(overallAccuracy / 80 * 100, 100) %>%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="green-card animate-card shadow">
+        <div class="card-header">
+          <h3 class="mb-0">Topic Performance</h3>
+        </div>
+        <div class="card-body p-4">
+          <ul class="list-group list-group-flush">
+            <% topics.forEach((topic, index) => { %>
+              <li class="list-group-item border-0 d-flex justify-content-between align-items-center py-3" style="animation-delay: <%= 0.1 * index %>s">
+                <span><i class="fas fa-bookmark me-2 text-primary"></i> <%= topic.name %></span>
+                <div>
+                  <div class="progress me-3 d-inline-block" style="width: 100px; height: 8px; vertical-align: middle;">
+                    <div class="progress-bar" role="progressbar" style="width: <%= topic.accuracy %>%"></div>
+                  </div>
+                  <span class="badge rounded-pill <%= topic.accuracy >= 70 ? 'bg-success' : topic.accuracy >= 50 ? 'bg-warning' : 'bg-danger' %>">
+                    <%= topic.accuracy %>%
+                  </span>
+                </div>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-8">
+      <div class="green-card animate-card shadow mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3 class="mb-0">Recent Practice Sessions</h3>
+          <a href="/questions/practice" class="btn btn-green btn-sm">
+            <i class="fas fa-plus me-1"></i> New Session
+          </a>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-4 py-3">Date</th>
+                  <th class="px-4 py-3">Topic</th>
+                  <th class="px-4 py-3">Questions</th>
+                  <th class="px-4 py-3">Accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% questionSets.forEach((set, index) => { 
+                  const answered = set.questions.filter(q => q.userAnswer).length;
+                  const correct = set.questions.filter(q => q.evaluation?.correct).length;
+                  const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+                %>
+                  <tr style="animation-delay: <%= 0.1 * index %>s">
+                    <td class="px-4 py-3"><%= set.date.toLocaleDateString() %></td>
+                    <td class="px-4 py-3">
+                      <span class="d-flex align-items-center">
+                        <i class="fas fa-tag me-2 text-primary"></i>
+                        <%= set.topic %>
+                      </span>
+                    </td>
+                    <td class="px-4 py-3"><%= answered %>/<%= set.questions.length %></td>
+                    <td class="px-4 py-3">
+                      <div class="d-flex align-items-center">
+                        <div class="progress me-3" style="width: 60px; height: 6px;">
+                          <div class="progress-bar bg-<%= accuracy >= 70 ? 'success' : accuracy >= 50 ? 'warning' : 'danger' %>" role="progressbar" style="width: <%= accuracy %>%"></div>
+                        </div>
+                        <span class="badge rounded-pill bg-<%= accuracy >= 70 ? 'success' : accuracy >= 50 ? 'warning' : 'danger' %>">
+                          <%= accuracy %>%
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="green-card animate-card shadow">
+        <div class="card-header">
+          <h3 class="mb-0">Areas for Improvement</h3>
+        </div>
+        <div class="card-body p-4">
+          <% const weakTopics = topics.filter(t => t.accuracy < 70).sort((a,b) => a.accuracy - b.accuracy); %>
+          <% if (weakTopics.length > 0) { %>
+            <div class="improvement-areas">
+              <h4 class="mb-4"><i class="fas fa-lightbulb text-warning me-2"></i> Focus on These Topics:</h4>
+              
+              <div class="row g-4">
+                <% weakTopics.slice(0, 3).forEach(topic => { %>
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm animate-card">
+                      <div class="card-body p-4 text-center">
+                        <div class="card-icon">
+                          <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h5 class="card-title"><%= topic.name %></h5>
+                        <div class="mt-3">
+                          <div class="progress">
+                            <div class="progress-bar bg-<%= topic.accuracy >= 70 ? 'success' : topic.accuracy >= 50 ? 'warning' : 'danger' %>" role="progressbar" style="width: <%= topic.accuracy %>%"></div>
+                          </div>
+                          <p class="mt-2 mb-0 text-<%= topic.accuracy >= 70 ? 'success' : topic.accuracy >= 50 ? 'warning' : 'danger' %>"><%= topic.accuracy %>% mastery</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% }); %>
+              </div>
+              
+              <div class="text-center mt-4">
+                <p>Prioritize these topics in your next practice sessions to improve your overall performance.</p>
+                <a href="/questions/practice" class="btn btn-green px-4 py-2">
+                  <i class="fas fa-play-circle me-2"></i> Start Focused Practice
+                </a>
+              </div>
+            </div>
+          <% } else { %>
+            <div class="text-center py-4">
+              <div class="mb-4">
+                <i class="fas fa-trophy fa-3x text-warning"></i>
+              </div>
+              <h4 class="text-success mb-3">Well Done!</h4>
+              <p class="lead">You're maintaining excellent performance across all topics.</p>
+              <p>Keep up the great work and continue practicing to maintain your knowledge!</p>
+              <a href="/questions/practice" class="btn btn-green px-4 mt-2">
+                <i class="fas fa-sync-alt me-2"></i> Continue Practice
+              </a>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .progress-circle {
+    position: relative;
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+  }
+  
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 90%;
+    max-height: 160px;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: var(--light-green);
+    stroke-width: 3;
+  }
+  
+  .circle {
+    fill: none;
+    stroke: var(--primary-green);
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    animation: progress 1.5s ease-out forwards;
+  }
+  
+  @keyframes progress {
+    0% { stroke-dasharray: 0 100; }
+  }
+  
+  .percentage {
+    fill: var(--primary-green);
+    font-size: 0.6em;
+    font-weight: bold;
+    text-anchor: middle;
+  }
+  
+  .table tbody tr {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease both;
+  }
+  
+  .table tbody tr:hover {
+    background-color: var(--light-green);
+  }
+  
+  .list-group-item {
+    animation: fadeIn 0.5s ease both;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<%- include('./partials/footer') %>

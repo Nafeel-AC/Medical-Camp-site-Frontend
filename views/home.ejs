@@ -1,0 +1,195 @@
+<%- include('./partials/header') %>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="hero-content">
+              <div class="d-flex align-items-center mb-4 justify-content-center justify-content-lg-start">
+                <div class="logo-icon me-2">
+                  <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <div class="text-white">We Care from our hearts and dedication</div>
+              </div>
+              <h1 class="hero-title">Nurturing Health<br>Building Trust</h1>
+              <p class="hero-text">Patient-centered care, we specialize in family medicine, pediatrics, and women's
+                health.</p>
+              <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                <a href="/appointments" class="btn btn-primary">Visit Us Today</a>
+                <a href="/about" class="btn btn-outline">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image-container d-flex justify-content-center align-items-center">
+              <dotlottie-player 
+                src="https://lottie.host/1b53a6a8-78be-4b0d-88d7-2c621fb59ca8/bBTtHD8RPM.json"
+                background="transparent" 
+                speed="1" 
+                style="width: 100%; max-width: 400px; height: auto; min-height: 300px" 
+                class="lottie-animation"
+                loop 
+                autoplay>
+              </dotlottie-player>
+              <div class="hero-image-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-shape"></div>
+    </section>
+
+    <!-- Service Categories Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <a href="/services/eldery" class="text-decoration-none">
+              <div class="card h-100 service-card">
+                <div class="card-body text-center p-4">
+                  <img src="/images/360_F_281427785_gfahY8bX4VYCGo6jlfO8St38wS9cJQop.jpg" alt="Surgery"
+                    class="img-fluid rounded mb-3 category-image">
+                  <h5 class="card-title">Elderly Care</h5>
+                  <p class="card-subtitle text-muted">Specialized care for seniors</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/services/pediatrics" class="text-decoration-none">
+              <div class="card h-100 service-card">
+                <div class="card-body text-center p-4">
+                  <img src="/images/shutterstock_227163250-e1507719014155.jpg" alt="Pediatrics"
+                    class="img-fluid rounded mb-3 category-image">
+                  <h5 class="card-title">Pediatrics</h5>
+                  <p class="card-subtitle text-muted">Children's healthcare</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/testimonials" class="text-decoration-none">
+              <div class="card h-100 service-card">
+                <div class="card-body text-center p-4">
+                  <div class="testimonial-preview mb-3">
+                    <img src="/images/jdk.jpg" alt="Patient Reviews" class="img-fluid rounded category-image">
+                    <div class="testimonial-overlay">
+                      <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                      </div>
+                      <p class="quote-preview">This is a very caring clinic that their physicians goes all theway!</p>
+                    </div>
+                  </div>
+                  <h5 class="card-title">Patient Reviews</h5>
+                  <p class="card-subtitle text-muted">Hear from our patients</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="/about/physicians" class="text-decoration-none">
+              <div class="card h-100 service-card">
+                <div class="card-body text-center p-4">
+                  <img src="/images/female-doctor-stock-2-042324-a7bc2e3ef76b4512b6792338539a9b03.jpg" alt="Doctor"
+                    class="img-fluid rounded mb-3 category-image">
+                  <h5 class="card-title">Our Physicians</h5>
+                  <p class="card-subtitle text-muted">Expert medical professionals</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section bg-light">
+      <div class="container">
+        <h2 class="section-title">Why Choose KHealth</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body p-4">
+                <div class="card-icon">
+                  <i class="fa-solid fa-stethoscope fa-xl"></i>
+                </div>
+                <h4 class="card-title text-center">Experienced Specialists</h4>
+                <p class="text-muted text-center">Our team of doctors have decades of combined experience in various
+                  specialties.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body p-4">
+                <div class="card-icon">
+                  <i class="fa-solid fa-clock fa-xl"></i>
+                </div>
+                <h4 class="card-title text-center">Same-Day Appointments</h4>
+                <p class="text-muted text-center">We offer same-day appointments for urgent medical needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <div class="card-body p-4">
+                <div class="card-icon">
+                  <i class="fa-solid fa-heart-pulse fa-xl"></i>
+                </div>
+                <h4 class="card-title text-center">Comprehensive Care</h4>
+                <p class="text-muted text-center">From preventive screenings to managing chronic conditions, we provide
+                  complete care.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"KHealth has been taking care of our family for years. The doctors are
+                knowledgeable and truly care about their patients' well-being."</p>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="/images/patient1.jpg" alt="Patient" class="img-fluid">
+                </div>
+                <h5 class="author-name">Sarah Johnson</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"I appreciate how Dr. Miller takes the time to listen to my concerns and
+                explains everything clearly. I never feel rushed during appointments."</p>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="/images/patient2.jpg" alt="Patient" class="img-fluid">
+                </div>
+                <h5 class="author-name">Michael Taylor</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section hero-section">
+      <div class="container text-center">
+        <h2 class="text-white mb-4">Ready to schedule your appointment?</h2>
+        <p class="text-white mb-4">We offer flexible scheduling options to accommodate your busy life.</p>
+        <a href="/appointments" class="btn btn-primary me-3">Book Appointment</a>
+        <a href="/contact" class="btn btn-outline">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('./partials/footer') %>

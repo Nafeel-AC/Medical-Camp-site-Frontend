@@ -1,0 +1,90 @@
+<!-- views/questions/practice.ejs -->
+<%- include('../partials/header') %>
+
+<div class="container practice-container my-4">
+  <h2 class="text-center mb-4">Question Practice</h2>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h4>Generate Questions</h4>
+        <form id="questionForm">
+          <div class="mb-3">
+            <label for="topic" class="form-label">Select Topic</label>
+            <select class="form-select" id="topic" required>
+              <option value="">Choose a topic...</option>
+              <% topics.forEach(topic => { %>
+                <option value="<%= topic %>"><%= topic %></option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="count" class="form-label">Number of Questions</label>
+            <input type="number" class="form-control" id="count" min="1" max="10" value="5" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Generate Questions</button>
+        </form>
+      </div>
+      
+      <div class="card mt-3 p-3">
+        <h4>Your Progress</h4>
+        <div class="progress mb-2">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 75%">75% Correct</div>
+        </div>
+        <p class="mb-1"><strong>Total Answered:</strong> 48</p>
+        <p class="mb-1"><strong>Correct Answers:</strong> 36</p>
+        <p><strong>Weak Areas:</strong> Pharmacology, Ethics</p>
+      </div>
+    </div>
+    
+    <div class="col-md-8">
+      <div class="card p-3">
+        <div id="questionArea" class="d-none">
+          <h4>Practice Session</h4>
+          <div id="questionsList" class="mb-4"></div>
+          
+          <div id="answerSection" class="d-none">
+            <h5>Answer This Question</h5>
+            <div class="question-card p-3 mb-3">
+              <p id="currentQuestionText"></p>
+            </div>
+            
+            <div class="audio-recorder">
+              <button id="recordBtn" class="record-btn">
+                <i class="fas fa-microphone"></i>
+              </button>
+              <span id="recordStatus">Press to record your answer</span>
+              <audio id="audioPlayback" controls class="d-none"></audio>
+            </div>
+            
+            <div class="d-flex justify-content-between mt-3">
+              <button id="submitAnswerBtn" class="btn btn-primary" disabled>
+                Submit Answer
+              </button>
+              <button id="nextQuestionBtn" class="btn btn-outline-primary">
+                Skip Question
+              </button>
+            </div>
+          </div>
+          
+          <div id="feedbackSection" class="mt-3 d-none">
+            <h5>Feedback</h5>
+            <div id="answerFeedback" class="answer-feedback p-3"></div>
+            <button id="continueBtn" class="btn btn-primary mt-2">
+              Continue to Next Question
+            </button>
+          </div>
+        </div>
+        
+        <div id="emptyState" class="text-center py-5">
+          <i class="fas fa-comment-medical fa-4x text-primary mb-3"></i>
+          <h4>No Questions Generated Yet</h4>
+          <p class="text-muted">Select a topic and generate questions to begin your practice session.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/questions.js"></script>
+<%- include('../partials/footer') %>

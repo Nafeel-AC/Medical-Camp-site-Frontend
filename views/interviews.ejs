@@ -1,0 +1,197 @@
+<%- include('./partials/header') %>
+
+<div class="container my-5 page-content">
+  <div class="row">
+    <div class="col-lg-9 mx-auto">
+      <div class="text-center mb-5">
+        <div class="animate-card d-inline-block p-3 rounded-circle mb-3" style="background: var(--light-green)">
+          <i class="fas fa-comments fa-2x" style="color: var(--primary-green)"></i>
+        </div>
+        <h1 class="display-4 fw-bold">Medical School Interview Tips</h1>
+        <p class="lead text-muted">Master your interviews with these expert strategies</p>
+      </div>
+      
+      <div class="green-card mb-5 animate-card shadow">
+        <div class="card-header">
+          <h3 class="mb-0">Common Interview Formats</h3>
+        </div>
+        <div class="card-body">
+          <div class="accordion" id="interviewFormats">
+            <div class="accordion-item border-0 mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#panel1">
+                  <i class="fas fa-user-tie me-2"></i> Traditional Interviews
+                </button>
+              </h2>
+              <div id="panel1" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <p>One-on-one or panel interviews focusing on your motivation, experiences, and personal qualities.</p>
+                  <div class="row mt-4">
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 bg-light rounded-circle p-2">
+                          <i class="fas fa-file-alt text-primary"></i>
+                        </div>
+                        <span>Discuss your personal statement</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 bg-light rounded-circle p-2">
+                          <i class="fas fa-history text-primary"></i>
+                        </div>
+                        <span>Share your experiences</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 bg-light rounded-circle p-2">
+                          <i class="fas fa-eye text-primary"></i>
+                        </div>
+                        <span>Maintain good posture</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item border-0 mb-3">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#panel2">
+                  <i class="fas fa-list-ol me-2"></i> MMI (Multiple Mini Interviews)
+                </button>
+              </h2>
+              <div id="panel2" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <p>Series of short interview stations assessing different competencies.</p>
+                  <div class="row mt-4">
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 bg-light rounded-circle p-2">
+                          <i class="fas fa-clock text-primary"></i>
+                        </div>
+                        <span>Manage your time effectively</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 bg-light rounded-circle p-2">
+                          <i class="fas fa-balance-scale text-primary"></i>
+                        </div>
+                        <span>Prepare for ethical scenarios</span>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="me-3 bg-light rounded-circle p-2">
+                          <i class="fas fa-puzzle-piece text-primary"></i>
+                        </div>
+                        <span>Structure your approach</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="green-card mb-5 animate-card shadow">
+        <div class="card-header">
+          <h3 class="mb-0">Common Question Types</h3>
+        </div>
+        <div class="card-body p-4">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card h-100 border-0 shadow-sm animate-card">
+                <div class="card-body p-4">
+                  <div class="card-icon">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <h5 class="card-title text-center">Personal Questions</h5>
+                  <div class="list-group list-group-flush">
+                    <div class="list-group-item border-0 d-flex align-items-center py-3">
+                      <i class="fas fa-angle-right me-3 text-primary"></i>
+                      <span>Why do you want to study medicine?</span>
+                    </div>
+                    <div class="list-group-item border-0 d-flex align-items-center py-3">
+                      <i class="fas fa-angle-right me-3 text-primary"></i>
+                      <span>What are your strengths and weaknesses?</span>
+                    </div>
+                    <div class="list-group-item border-0 d-flex align-items-center py-3">
+                      <i class="fas fa-angle-right me-3 text-primary"></i>
+                      <span>Tell me about a time you faced a challenge</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100 border-0 shadow-sm animate-card">
+                <div class="card-body p-4">
+                  <div class="card-icon">
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <h5 class="card-title text-center">Ethical Scenarios</h5>
+                  <div class="list-group list-group-flush">
+                    <div class="list-group-item border-0 d-flex align-items-center py-3">
+                      <i class="fas fa-angle-right me-3 text-primary"></i>
+                      <span>How would you handle a patient refusing treatment?</span>
+                    </div>
+                    <div class="list-group-item border-0 d-flex align-items-center py-3">
+                      <i class="fas fa-angle-right me-3 text-primary"></i>
+                      <span>What would you do if you saw a colleague make a mistake?</span>
+                    </div>
+                    <div class="list-group-item border-0 d-flex align-items-center py-3">
+                      <i class="fas fa-angle-right me-3 text-primary"></i>
+                      <span>How should limited medical resources be allocated?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <% if (user && user.isPremium) { %>
+        <div class="text-center mt-5">
+          <a href="/questions/practice" class="btn btn-green btn-lg px-5 py-3">
+            <i class="fas fa-play-circle me-2"></i> Practice Now with AI
+          </a>
+        </div>
+      <% } else if (user) { %>
+        <div class="green-card p-4 mt-5 animate-card shadow">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h4 class="mb-3">Upgrade to Premium</h4>
+              <p class="mb-lg-0">Access our AI-powered question practice system to prepare for all these question types.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="/pricing" class="btn btn-green">
+                <i class="fas fa-crown me-2"></i> View Pricing
+              </a>
+            </div>
+          </div>
+        </div>
+      <% } else { %>
+        <div class="green-card p-4 mt-5 animate-card shadow">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h4 class="mb-3">Get Started</h4>
+              <p class="mb-lg-0">Register now to begin your medical school interview preparation journey.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="/auth/register" class="btn btn-green">
+                <i class="fas fa-user-plus me-2"></i> Register Now
+              </a>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('./partials/footer') %>

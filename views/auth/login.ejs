@@ -1,0 +1,97 @@
+<%- include('../partials/header') %>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow green-card">
+        <div class="card-header text-center py-4" style="background: var(--gradient-green);">
+          <div class="d-flex align-items-center justify-content-center mb-2">
+            <div class="logo-icon me-2">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <h3 class="text-white mb-0">Welcome Back</h3>
+          </div>
+          <p class="text-white-50 mb-0">Sign in to continue to KHealth</p>
+        </div>
+        <div class="card-body p-4">
+          <% if (error_msg && error_msg.length > 0) { %>
+            <div class="alert alert-danger alert-dismissible fade show">
+              <%= error_msg %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          <% } %>
+          
+          <form id="loginForm" action="/auth/login" method="POST">
+            <div class="mb-4">
+              <label for="email" class="form-label">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="fas fa-envelope text-muted"></i></span>
+                <input type="email" class="form-control border-start-0" id="email" name="email" placeholder="Enter your email" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <label for="password" class="form-label">Password</label>
+                <a href="/auth/forgot-password" class="text-decoration-none small" style="color: var(--primary-green);">Forgot Password?</a>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="fas fa-lock text-muted"></i></span>
+                <input type="password" class="form-control border-start-0" id="password" name="password" placeholder="Enter your password" required>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="rememberMe" name="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-green">
+                <i class="fas fa-sign-in-alt me-2"></i>Sign In
+              </button>
+            </div>
+          </form>
+          
+          <div class="text-center mt-4">
+            <p class="mb-0">Don't have an account? <a href="/auth/register" style="color: var(--primary-green); font-weight: 600;">Register here</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Features Section -->
+      <div class="row mt-4 g-3">
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-3">
+            <div class="card-icon">
+              <i class="fa-solid fa-book-medical"></i>
+            </div>
+            <h6 class="mt-3">Practice Questions</h6>
+            <p class="small text-muted mb-0">Access hundreds of medical questions</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-3">
+            <div class="card-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h6 class="mt-3">Track Progress</h6>
+            <p class="small text-muted mb-0">Monitor your improvement over time</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center p-3">
+            <div class="card-icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <h6 class="mt-3">Interview Prep</h6>
+            <p class="small text-muted mb-0">Practice mock interviews</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
